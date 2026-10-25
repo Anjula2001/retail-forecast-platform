@@ -1,0 +1,8 @@
+[split]
+train_start = 2009-12-07
+validation_start = 2011-06-06
+test_start = 2011-09-05
+end_exclusive = 2011-12-05
+[selection]
+n_products = 20
+min_sales_weeks = 60

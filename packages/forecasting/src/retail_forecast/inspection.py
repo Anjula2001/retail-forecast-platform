@@ -30,6 +30,23 @@ def inspect_workbook(path: Path) -> None:
             print(df.isna().sum().to_string())
 
 
+def summarize_unusual_stock_codes(sales: pd.DataFrame) -> pd.DataFrame:
+    """Summarize codes outside a common product-code pattern for review."""
+    codes = sales["StockCode"].astype("string").str.strip()
+    matches_pattern = codes.str.fullmatch(r"\d{5}[A-Za-z]*", na=False)
+
+    return (
+        sales.loc[~matches_pattern]
+        .groupby("StockCode", dropna=False)
+        .agg(
+            line_count=("Invoice", "size"),
+            example_description=("Description", "first"),
+        )
+        .reset_index()
+        .sort_values("line_count", ascending=False)
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Inspect a retail Excel workbook.")
     parser.add_argument("path", type=Path, help="Path to the source Excel file.")
