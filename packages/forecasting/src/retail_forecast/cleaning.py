@@ -45,3 +45,4 @@ def select_merchandise_sales(sales: pd.DataFrame) -> pd.DataFrame:
     excluded = codes.isin(EXCLUDED_STOCK_CODES) | codes.str.startswith("GIFT_0001_", na=False)
 
     return sales.loc[~excluded].copy()
+0000000
