@@ -30,3 +30,13 @@ Final generalization performance remains unconfirmed.
 - Automate candidate training, comparison and artifact saving.
 - Record experiment parameters, data identity and software versions.
 - Freeze the chosen approach before final holdout evaluation.
+
+## Final holdout evaluation
+
+- Method: previous 4-week average, selected on validation.
+- Test period: 2011-09-05 through 2011-12-04.
+- Protocol: one-week-ahead forecasts using the four preceding actual weeks.
+- Scored rows: 260 of 260.
+- MAE: 223.53 units per product-week.
+- WAPE: 45.08%.
+- Run output: `artifacts/final_test/metrics.json`.
