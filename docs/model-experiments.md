@@ -26,10 +26,15 @@ These results apply to this product subset and validation period.
 Final generalization performance remains unconfirmed.
 
 ## Next steps
-- Test training-period isolation and preprocessing behavior.
-- Automate candidate training, comparison and artifact saving.
-- Record experiment parameters, data identity and software versions.
-- Freeze the chosen approach before final holdout evaluation.
+- Training-period isolation is covered by tests in `tests/test_selection.py` and `tests/test_training.py`.
+- Candidate training, validation comparison, and artifact saving are available with
+  `retail-forecast-experiment`.
+- Each run records parameters, input and config hashes, and software versions in `metadata.json`.
+- The final holdout result below remains the recorded test result; the experiment command uses
+  validation data only.
+
+Next, define the operational forecast input/output contract and retraining cadence before choosing
+an AWS deployment shape.
 
 ## Final holdout evaluation
 

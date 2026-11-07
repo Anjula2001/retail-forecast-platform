@@ -12,7 +12,11 @@ dependencies = [
   "pandas",
   "openpyxl",
   "scikit-learn",
+  "joblib",
 ]
+
+[project.scripts]
+retail-forecast-experiment = "retail_forecast.experiment:main"
 
 [tool.setuptools.packages.find]
 where = ["packages/forecasting/src"]
